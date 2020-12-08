@@ -1,0 +1,58 @@
+{
+  "name": "vue-sticky-header",
+  "description": "分列布局瀑布流插件",
+  "version": "1.0.0",
+  "author": "zhengzhigang",
+  "license": "MIT",
+  "private": false,
+  "main": "dist/waterfall.js",
+  "jsnext:main": "src/index.js",
+  "scripts": {
+    "webpack": "webpack-dev-server --inline",
+    "dev": "webpack-dev-server --open --inline --progress --config ./webpack.dev.config.js",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "test": "jest ./test/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zhengzhigang/column-vue-waterfall.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zhengzhigang/column-vue-waterfall/issues"
+  },
+  "homepage": "",
+  "dependencies": {
+    "@babel/polyfill": "^7.8.7",
+    "vue": "^2.5.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-transform-arrow-functions": "^7.8.3",
+    "@babel/preset-env": "^7.9.0",
+    "@babel/runtime": "^7.6.3",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-dynamic-import-webpack": "^1.1.0",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "cross-env": "^5.0.5",
+    "css-loader": "^3.4.2",
+    "file-loader": "^1.1.4",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "html-webpack-plugin": "^4.0.3",
+    "jest": "^25.2.4",
+    "node-sass": "^4.13.1",
+    "portfinder": "^1.0.25",
+    "sass-loader": "^8.0.0",
+    "vue-loader": "^15.9.1",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.4.4",
+    "webpack": "^4.42.1",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
