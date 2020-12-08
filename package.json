@@ -1,7 +1,7 @@
 {
   "name": "column-vue-waterfall",
   "description": "分列布局瀑布流插件",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "zhengzhigang",
   "license": "MIT",
   "private": false,

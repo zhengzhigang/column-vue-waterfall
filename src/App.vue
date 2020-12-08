@@ -8,7 +8,7 @@
         @reflowed="reflowed"
       >
         <template v-slot="item">
-          <!-- 自定义卡片 -->
+          <!-- 自定义卡片,尺寸样式完全自定义 -->
           <div class="item" :style="{...item.style, height: item.height + 'px'}">{{item.index}}</div>
         </template>
       </waterfall>
