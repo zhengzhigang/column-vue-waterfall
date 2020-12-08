@@ -1,4 +1,4 @@
-# vue-sticky-header
+# column-vue-waterfall
 
 > 分列布局的瀑布流组件，无需知道每个卡片的具体高度，但是你始终应该提供一个默认高度，此高度不会作为最终高度展示
 > 卡片样式尺寸完全自定义
@@ -7,7 +7,7 @@
 
 ``` bash
 # 安装
-npm install vue-sticky-header
+npm install column-vue-waterfall
 ```
 
 ### 全局使用
