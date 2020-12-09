@@ -14,6 +14,17 @@ const install = function(Vue) {
     })
 }
 
+/**
+ * Auto install
+ */
+if (typeof window !== 'undefined' && window.Vue) {
+    window.Vue.use(install)
+}
+
+export {
+    Waterfall
+}
+
 export default {
     install,
     Waterfall
