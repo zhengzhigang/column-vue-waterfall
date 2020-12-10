@@ -21,9 +21,19 @@ Vue.use(waterfall)
 ```js
 template>
   <div id="app">
-    <sticky :stickyTop="90">
-        <div v-for="item in ['nav1', 'nav2', 'nav3']">{{ item }}</div>
-    </sticky>
+    <div class="home">
+      <waterfall
+        :data="items"
+        :column="2"
+        :gap="17"
+        @reflowed="reflowed"
+      >
+        <template v-slot="item">
+          <!-- 自定义卡片,尺寸样式完全自定义 -->
+          <div class="item" :style="{...item.style, height: item.height + 'px'}">{{item.index}}</div>
+        </template>
+      </waterfall>
+    </div>
   </div>
 </template>
 
@@ -34,6 +44,11 @@ export default {
   name: 'app',
   components: {
     Waterfall
+  },
+  data() {
+    return {
+      items: [{}]
+    }
   }
 }
 </script>
