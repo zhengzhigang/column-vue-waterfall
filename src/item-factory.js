@@ -8,8 +8,8 @@ function generateRandomItems (count) {
       style: {
         background: getRandomColor()
       },
-      width: 100 + ~~(Math.random() * 50),
-      height: 100 + ~~(Math.random() * 50)
+      __width: 100 + ~~(Math.random() * 50),
+      __height: 100 + ~~(Math.random() * 50)
     }
   }
   return items

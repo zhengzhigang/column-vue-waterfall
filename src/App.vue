@@ -4,12 +4,12 @@
       <waterfall
         :data="items"
         :column="2"
-        :gap="17"
+        :gutter="15"
         @reflowed="reflowed"
       >
         <template v-slot="item">
           <!-- 自定义卡片,尺寸样式完全自定义 -->
-          <div class="item" :style="{...item.style, height: item.height + 'px'}">{{item.index}}</div>
+          <div class="item" :style="{...item.style, height: item.__height + 'px'}">{{item.index}}</div>
         </template>
       </waterfall>
     </div>
@@ -72,11 +72,15 @@ body {
   color: #2c3e50;
 }
 .home {
-  padding: 20px 16px;
+  padding: 20px 15px;
   background: linear-gradient(to bottom, #fff 0px, #f6f6f6 160px);;
 }
 .item {
-  width: 163px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 165px;
+  margin-top: 10px;
   overflow: hidden;
 }
 .item-move {

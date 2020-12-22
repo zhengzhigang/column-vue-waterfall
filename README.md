@@ -25,7 +25,7 @@ template>
       <waterfall
         :data="items"
         :column="2"
-        :gap="17"
+        :gutter="17"
         @reflowed="reflowed"
       >
         <template v-slot="item">
@@ -58,11 +58,7 @@ export default {
 ## Options
 |  Attribute   | Description  |  Type  |  Accepted Values  |  Default  |
 |  ----------  | -----------  |  ----  |  ---------------  |  -------  |
-| data         | 渲染的数据     | Array | 必须包含width和height |  []        |
+| data         | 渲染的数据     | Array | 必须包含 __height |  []        |
 | column       | 列数          | number |  -                |  2        |
 | gutter       |  列间距 |     | number |  -                |  10       |
-| itemGap      | 卡片间距      |  number |               -  |  10        |
 | autoResize   | 设备宽度变化是否重新渲染 |  boolead  |  true/false  |  true  |
-| isRem  |  是否使用rem布局  |  boolean  |  true/false  |  true  |
-| baseWidth  |  设计稿宽度  |  number  |  -  |  750  |
-| remBase  |  rem布局基数  |  number  |  -  |  75  |

@@ -12,7 +12,6 @@
                 class="column-item"
                 v-for="(item, index) in columnList[`_column${i}`]"
                 :key="index"
-                :style="cardGapStyle"
             >
                 <slot v-bind="item"></slot>
             </div>
@@ -41,11 +40,7 @@ export default {
         },
         gutter: {
             type: [Number, String],
-            default: 10
-        },
-        itemGap: {
-            type: [Number, String],
-            default: 10
+            default: 0
         },
         data: {
             type: Array,
@@ -53,39 +48,20 @@ export default {
         },
         autoResize: {
             default: true
-        },
-        isRem: {
-            type: Boolean,
-            default: false
-        },
-        remBase: {
-            type: Number,
-            default: 75
-        },
-        baseWidth: {
-            type: Number,
-            default: 750
         }
     },
 
     computed: {
-        ratio() {
-            return this.baseWidth / window.screen.width
-        },
         getColumnStyle() {
             const c = +this.column
             const w = this.clientWidth
             const gutter = +this.gutter
-            console.log('&&&&', w, (w - (gutter * (c - 1))) / c)
+            const cW = this.$refs._column0 && this.$refs._column0[0].getBoundingClientRect().width
             return {
                 float: 'left',
-                marginRight: this.getRemStyle(gutter),
-                minWidth: this.getRemStyle((w - (gutter * (c - 1))) / c),
-            }
-        },
-        cardGapStyle() {
-            return {
-                marginTop: this.getRemStyle(+this.itemGap)
+                // 如果getter过大，则取计算后的
+                marginRight: gutter + 'px',
+                minWidth: (w - (gutter * (c - 1))) / c + 'px',
             }
         }
     },
@@ -130,7 +106,7 @@ export default {
         reflow() {
             const el = this.$el
             if (!el) return
-            this.clientWidth = el.clientWidth
+            this.clientWidth = this.$el.getBoundingClientRect().width
             this.insert()
         },
 
@@ -141,7 +117,7 @@ export default {
             newList.map(item => {
                 const minIndex = this.getMinColumn()
                 this.columnList[`_column${minIndex}`].push(item)
-                this.setColumnNewHeight(minIndex, item.height + Number(this.itemGap))
+                this.setColumnNewHeight(minIndex, item.__height)
             })
             this.count = this.data.length
         },
@@ -173,10 +149,6 @@ export default {
             } else {
                 on(window, 'resize', this.reflowHandler, false)
             }
-        },
-
-        getRemStyle(t) {
-            return this.isRem ? t / this.remBase + 'rem' : t + 'px'
         }
     }
 }
