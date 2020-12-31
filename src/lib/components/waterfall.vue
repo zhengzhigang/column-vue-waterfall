@@ -67,8 +67,12 @@ export default {
     },
 
     watch: {
-        data() {
-            this.reflowHandler()
+        data(v) {
+            if (!v.length) {
+                this.clear()
+            } else {
+                this.reflowHandler()
+            }
         }
     },
 
@@ -114,7 +118,8 @@ export default {
             this.initColumnHeight()
             const list = this.data
             const newList = list.length === this.count ? list : list.slice(this.count)
-            newList.map(item => {
+            newList.map((item, index) => {
+                item.__idx__ = this.count + index
                 const minIndex = this.getMinColumn()
                 this.columnList[`_column${minIndex}`].push(item)
                 this.setColumnNewHeight(minIndex, item.__height)
@@ -149,6 +154,12 @@ export default {
             } else {
                 on(window, 'resize', this.reflowHandler, false)
             }
+        },
+
+        clear() {
+            this.columnSet = [],
+            this.columnList = {},
+            this.count = 0
         }
     }
 }

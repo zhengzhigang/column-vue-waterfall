@@ -58,7 +58,7 @@ export default {
 ## Options
 |  Attribute   | Description  |  Type  |  Accepted Values  |  Default  |
 |  ----------  | -----------  |  ----  |  ---------------  |  -------  |
-| data         | 渲染的数据     | Array | 必须包含 __height |  []        |
+| data         | 渲染的数据     | Array | 必须包含 __height, 数组的每一项会暴露出一个索引 '__idx__'  |  []  |
 | column       | 列数          | number |  -                |  2        |
 | gutter       |  列间距 |     | number |  -                |  10       |
 | autoResize   | 设备宽度变化是否重新渲染 |  boolead  |  true/false  |  true  |

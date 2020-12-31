@@ -3,13 +3,13 @@
     <div class="home">
       <waterfall
         :data="items"
-        :column="2"
+        :column="3"
         :gutter="15"
         @reflowed="reflowed"
       >
         <template v-slot="item">
           <!-- 自定义卡片,尺寸样式完全自定义 -->
-          <div class="item" :style="{...item.style, height: item.__height + 'px'}">{{item.index}}</div>
+          <div class="item" :style="{...item.style, height: item.__height + 'px'}">{{item.__idx__}}</div>
         </template>
       </waterfall>
     </div>
@@ -79,7 +79,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 165px;
+  width: 115px;
   margin-top: 10px;
   overflow: hidden;
 }
