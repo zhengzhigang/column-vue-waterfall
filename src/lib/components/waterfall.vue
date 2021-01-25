@@ -67,12 +67,17 @@ export default {
     },
 
     watch: {
-        data(v) {
-            if (!v.length) {
-                this.clear()
-            } else {
-                this.reflowHandler()
-            }
+        data: {
+            handler(v) {
+                if (!v.length) {
+                    this.clear()
+                } else {
+                    this.$nextTick(() => {
+                        this.reflowHandler()
+                    })
+                }
+            },
+            imalidate: true
         }
     },
 
@@ -80,7 +85,6 @@ export default {
         this.$watch(() => (
             this.column
         ), this.reflowHandler)
-        this.reflowHandler()
     },
 
     mounted() {
@@ -94,6 +98,10 @@ export default {
 
     methods: {
         reflowHandler() {
+            if (this.data.length <= this.count) {
+                return
+            }
+
             if (this.columnSet.length !== +this.column) {
                 this.columnSet = new Array(+this.column).fill(0)
                 this.columnList = {}
